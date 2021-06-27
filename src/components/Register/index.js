@@ -3,13 +3,13 @@ import React, {useState} from 'react';
 import {Image, View, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-import Container from '../../components/common/Container';
-import CustomButton from '../../components/common/CustomButton';
-import Input from '../../components/common/Input';
+import Container from '../common/Container';
+import CustomButton from '../common/CustomButton';
+import Input from '../common/Input';
 import {LOGIN} from '../../constants/routeNames';
 import styles from './styles';
 
-const SignupComponent = ({onSubmit, onChange, loading, error, errors}) => {
+const RegisterComponent = ({onSubmit, onChange, loading, error, errors}) => {
   const {navigate} = useNavigation();
   const [isSecureEntry, setIsSecureEntry] = useState(true);
 
@@ -107,4 +107,4 @@ const SignupComponent = ({onSubmit, onChange, loading, error, errors}) => {
   );
 };
 
-export default SignupComponent;
+export default RegisterComponent;
