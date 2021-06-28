@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import RegisterComponent from '../../components/Register';
 import envs from '../../config/env';
+import axiosInstance from '../../helpers/axiosInterceptor';
 
 const Register = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
+
+  React.useEffect(() => {
+    axiosInstance.get('/contacts').catch(err => {
+      console.log('err--', err.response);
+    });
+  }, []);
 
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
