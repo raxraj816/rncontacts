@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import RegisterComponent from '../../components/Register';
+import envs from '../../config/env';
 
 const Register = () => {
   const [form, setForm] = useState({});
