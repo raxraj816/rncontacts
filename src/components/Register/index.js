@@ -7,6 +7,8 @@ import Container from '../common/Container';
 import CustomButton from '../common/CustomButton';
 import Input from '../common/Input';
 import {LOGIN} from '../../constants/routeNames';
+import Message from '../common/Message';
+import Icon from '../../components/common/Icon';
 import styles from './styles';
 
 const RegisterComponent = ({onSubmit, onChange, loading, error, errors}) => {
@@ -27,6 +29,9 @@ const RegisterComponent = ({onSubmit, onChange, loading, error, errors}) => {
         <Text style={styles.subTitle}>Create a free account</Text>
 
         <View style={styles.form}>
+          {error?.error && (
+            <Message retry danger retryFn={onSubmit} message={error?.error} />
+          )}
           <Input
             label="Username"
             iconPosition="right"
@@ -74,7 +79,15 @@ const RegisterComponent = ({onSubmit, onChange, loading, error, errors}) => {
                 onPress={() => {
                   setIsSecureEntry(prev => !prev);
                 }}>
-                <Text>{isSecureEntry ? 'Show' : 'Hide'}</Text>
+                {isSecureEntry ? (
+                  <Icon
+                    type="materialCommunity"
+                    size={17}
+                    name="eye-off-outline"
+                  />
+                ) : (
+                  <Icon type="materialCommunity" size={17} name="eye-outline" />
+                )}
               </TouchableOpacity>
             }
             iconPosition="right"
