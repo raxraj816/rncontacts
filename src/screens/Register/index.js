@@ -86,7 +86,6 @@ const Register = () => {
       Object.values(errors).every(item => !item)
     ) {
       register(form)(authDispatch)(response => {
-        console.log('--Register--response------', response);
         navigate(LOGIN, {data: response});
       });
     }
